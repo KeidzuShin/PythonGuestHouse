@@ -1,0 +1,26 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">Edit Layanan</p>
+  </div>
+  <div class="card p-4">
+    <div>
+      <p>Silahkan masukan nama, deskripsi dan harga baru layanan untuk mengubah layanan.</p>
+      <form action="/service/{{ service.id }}/update" method="POST">
+        <div class="form-group mb-3">
+          <label for="service-name-input" class="form-label">Nama Layanan</label>
+          <input type="text" name="name" class="form-control w-50" id="service-name-input" placeholder="Masukan Nama" value="{{ service.name }}">
+        </div>
+        <div class="form-group mb-3">
+          <label for="service-name-input" class="form-label">Deskripsi</label>
+          <textarea name="description" class="form-control w-50" rows="6" placeholder="Masukan Deskripsi">{{ service.description }}</textarea>
+        </div>
+        <div class="form-group mb-3">
+          <label for="service-price-input" class="form-label">Harga</label>
+          <input type="text" name="price" class="form-control w-50" id="service-price-input" placeholder="Masukan Harga" value="{{ service.price }}">
+        </div>
+        <button class="btn btn-dark mt-2">Simpan</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

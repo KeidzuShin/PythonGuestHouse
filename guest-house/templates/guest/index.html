@@ -1,0 +1,48 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">Tamu</p>
+    <a href="/guest/create" class="ms-auto">
+      <button class="btn btn-primary">Tambah</button>
+    </a>
+  </div>
+  <div class="card p-4">
+    <div>
+      <table id="table" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">No KTP</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">No Telp</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Opsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for guest in guests %}
+            <tr>
+              <td>{{ guest.id }}</td>
+              <td>{{ guest.identity_number }}</td>
+              <td>{{ guest.name }}</td>
+              <td>{{ guest.email }}</td>
+              <td>{{ guest.address }}</td>
+              <td>{{ guest.phone_number }}</td>
+              <td>{{ guest.created_at }}</td>
+              <td>
+                <a href="/guest/{{ guest.id }}/edit">
+                  <button class="btn btn-success">Edit</button>
+                </a>
+                <a href="/guest/{{ guest.id }}/destroy">
+                  <button class="btn btn-outline-danger">Hapus</button>
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

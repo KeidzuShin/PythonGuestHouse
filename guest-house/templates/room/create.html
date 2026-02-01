@@ -1,0 +1,18 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">Tambah Kamar</p>
+  </div>
+  <div class="card p-4">
+    <div>
+      <p>Silahkan masukan nama menambahkan kamar baru.</p>
+      <form action="/room/store" method="POST">
+        <div class="form-group mb-3">
+          <label for="room-name-input" class="form-label">Nama Kamar</label>
+          <input type="text" name="name" class="form-control w-50" id="room-name-input" placeholder="Masukan Nama" required>
+        </div>
+        <button class="btn btn-dark mt-2">Simpan</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">
+      Detail Pesanan
+      {% if book.check_in %}
+        <span class="badge bg-success">complete</span>
+      {% else %}
+        <span class="badge bg-secondary">pending</span>
+      {% endif %}
+    </p>
+    <a href="/book/create" class="ms-auto">
+      <button class="btn btn-primary">Tambah</button>
+    </a>
+  </div>
+  <div class="card p-4">
+    <div class="mb-4">
+      <p class="font-weight-bold fs-4">
+        Pelanggan
+      </p>
+      <table class="table display" style="width:100%">
+        <tbody>
+          <tr>
+            <th scope="col">No KTP</th>
+            <td>{{ book.identity_number }}</td>
+          </tr>
+          <tr>
+            <th scope="col">Name</th>
+            <td>{{ book.name }}</td>
+          </tr>
+          <tr>
+            <th scope="col">Email</th>
+            <td>{{ book.email }}</td>
+          </tr>
+          <tr>
+            <th scope="col">No Telp</th>
+            <td>{{ book.phone_number }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <p class="font-weight-bold fs-4">
+        Pesanan
+      </p>
+      <table class="table display" style="width:100%">
+        <tbody>
+          <tr>
+            <th scope="col">Mulai</th>
+            <td>{{ book.from_date.strftime('%Y-%m-%d') }}</td>
+          </tr>
+          <tr>
+            <th scope="col">Selesai</th>
+            <td>{{ book.from_date.strftime('%Y-%m-%d') }}</td>
+          </tr>
+          <tr>
+            <th scope="col">Layanan</th>
+            <td>{{ book.service.name }}</td>
+          </tr>
+          <tr>
+            <th scope="col">Kamar</th>
+            <td>{{ book.room.name }}</td>
+          </tr>
+          <tr>
+            <th scope="col">Created at</th>
+            <td>{{ book.room.created_at }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

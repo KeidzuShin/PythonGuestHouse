@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\templates",
+    "\\templates\\book",
+    "\\templates\\guest",
+    "\\templates\\room",
+    "\\templates\\service",
+    "\\templates\\user"
+  ],
+  "SelectedNode": "\\templates\\book\\transaction.html",
+  "PreviewInSolutionExplorer": false
+}

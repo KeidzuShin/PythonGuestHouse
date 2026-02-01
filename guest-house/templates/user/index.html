@@ -1,0 +1,44 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">Pengguna</p>
+    <a href="/user/create" class="ms-auto">
+      <button class="btn btn-primary">Tambah</button>
+    </a>
+  </div>
+  <div class="card p-4">
+    <div>
+      <table id="table" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Opsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.created_at }}</td>
+              <td>
+                <a href="/user/{{ user.id }}/edit">
+                  <button class="btn btn-success">Edit</button>
+                </a>
+                <a href="/user/{{ user.id }}/destroy">
+                  <button class="btn btn-outline-danger">Hapus</button>
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

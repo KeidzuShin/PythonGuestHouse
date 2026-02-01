@@ -1,0 +1,53 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">Daftar Transaksi</p>
+    <a href="/book/export" class="ms-auto">
+      <button class="btn btn-success">Export</button>
+    </a>
+  </div>
+  <div class="card p-4">
+    <div>
+      <table id="table" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th scope="col">No KTP</th>
+            <th scope="col">Name</th>
+            <th scope="col">No Telp</th>
+            <th scope="col">Mulai</th>
+            <th scope="col">Selesai</th>
+            <th scope="col">Layanan</th>
+            <th scope="col">Kamar</th>
+            <th scope="col">Status</th>
+            <th scope="col">Opsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in books %}
+            <tr>
+              <td>{{ book.identity_number }}</td>
+              <td>{{ book.name }}</td>
+              <td>{{ book.phone_number }}</td>
+              <td>{{ book.from_date.strftime('%Y-%m-%d') }}</td>
+              <td>{{ book.to_date.strftime('%Y-%m-%d') }}</td>
+              <td>{{ book.service.name }}</td>
+              <td>{{ book.room.name }}</td>
+              <td>
+                {% if book.check_in %}
+                  <span class="badge bg-success">complete</span>
+                {% else %}
+                  <span class="badge bg-secondary">pending</span>
+                {% endif %}
+              </td>
+              <td>
+                <a href="/book/{{ book.id }}">
+                  <button class="btn btn-sm btn-secondary">Detail</button>
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

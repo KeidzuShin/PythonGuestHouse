@@ -1,0 +1,58 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">Booking</p>
+  </div>
+  <div class="card p-4">
+    <div>
+      <p>Silahkan masukan data berikut untuk manambah data tamu.</p>
+      <form action="/book/store" method="POST">
+        <div class="form-group mb-3">
+          <label for="guest-identity-number-input" class="form-label">No KTP</label>
+          <input type="text" name="identity_number" class="form-control w-50" id="guest-identity-number-input" placeholder="Masukan No KTP" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-name-input" class="form-label">Nama</label>
+          <input type="text" name="name" class="form-control w-50" id="guest-identity-number-input" placeholder="Masukan Nama" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-name-input" class="form-label">Email</label>
+          <input type="text" name="email" class="form-control w-50" id="guest-name-input" placeholder="Masukan Email" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-address-input" class="form-label">Alamat</label>
+          <input type="text" name="address" class="form-control w-50" id="guest-address-input" placeholder="Masukan Alamat" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-phone-number-input" class="form-label">No Telp</label>
+          <input type="text" name="phone_number" class="form-control w-50" id="guest-phone-number-input" placeholder="No Telp" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-room-id-input" class="form-label">Kamar</label>
+          <select name="room_id" id="guest-room-id-input" class="form-select w-50" aria-label="Default select example">
+            {% for room in rooms %}
+              <option value="{{ room.id }}">{{ room.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-service-id-input" class="form-label">Layanan</label>
+          <select name="service_id" id="guest-service-id-input" class="form-select w-50" aria-label="Default select example">
+            {% for service in services %}
+              <option value="{{ service.id }}">{{ service.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-from-date-input" class="form-label">Dari Tanggal</label>
+          <input type="date" name="from_date" class="form-control w-50" id="guest-from-date-input" placeholder="Masukan Tanggal Mulai" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-to-date-input" class="form-label">Sampai Tanggal</label>
+          <input type="date" name="to_date" class="form-control w-50" id="guest-to-date-input" placeholder="Masukan Tanggal Berakhir" required>
+        </div>
+        <button class="btn btn-dark mt-2">Simpan</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

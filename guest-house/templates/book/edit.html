@@ -1,0 +1,34 @@
+{% extends 'admin-template.html' %}
+{% block content %}
+  <div class="w-100 d-flex align-items-center">
+    <p class="font-weight-bold fs-2 fw-bolder">Edit Tamu</p>
+  </div>
+  <div class="card p-4">
+    <div>
+      <p>Silahkan masukan data berikut untuk mengubah data tamu.</p>
+      <form action="/guest/{{ guest.id }}/update" method="POST">
+        <div class="form-group mb-3">
+          <label for="guest-name-input" class="form-label">No KTP</label>
+          <input type="text" name="identity_number" class="form-control w-50" id="guest-name-input" placeholder="Masukan No KTP" required value="{{ guest.identity_number }}">
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-name-input" class="form-label">Nama</label>
+          <input type="text" name="name" class="form-control w-50" id="guest-name-input" placeholder="Masukan Nama" value="{{ guest.name }}" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-name-input" class="form-label">Email</label>
+          <input type="text" name="email" class="form-control w-50" id="guest-name-input" placeholder="Masukan Email" value="{{ guest.email }}" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-name-input" class="form-label">Alamat</label>
+          <input type="text" name="address" class="form-control w-50" id="guest-name-input" placeholder="Masukan Alamat" value="{{ guest.address }}" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="guest-name-input" class="form-label">No Telp</label>
+          <input type="text" name="phone_number" class="form-control w-50" id="guest-name-input" placeholder="No Telp" value="{{ guest.phone_number }}" required>
+        </div>
+        <button class="btn btn-dark mt-2">Simpan</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
