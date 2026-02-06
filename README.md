@@ -19,7 +19,3 @@ A web-based system designed to implement booking marketing display, management, 
 - Frontend: Python, HTML, CSS
 - Authentication: Session-based login system
 - Reporting: PDF generation for transaction reports
-
-Dynamic report generation in PDF format
-
-Development of practical business-oriented web systems
